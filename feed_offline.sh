@@ -1,19 +1,21 @@
 #!/bin/bash
-#Version 1.0 
-#Changelog- 1.0 - Inicio 
-#Defenir las firmas
+#IMPORTANT --------> Use a virtual machine with ALienvault trial  to download the feed  <---------
+#Version 2.0 
+#Changelog- 1.0 - First release
+#Changelog- 2.0 - Update release 
+#Define the feeds packege
 PACKAGE_LIST="ossim-mysql-ext alienvault-directives-free alienvault-directives-pro alienvault-crosscorrelation-free alienvault-crosscorrelation-pro snort-rules-default suricata-rules-default ossim-taxonomy alienvault-openvas-feed alienvault-openvas8-feed alienvault-cpe alienvault-plugins alienvault-plugin-sids alienvault-reporting"
-#Crear el Menu
+#Crear menu
 HEIGHT=15
 WIDTH=60
 CHOICE_HEIGHT=4
-BACKTITLE="Actulizar firmas USM OFFLINE"
-TITLE="Actualiza firmas USM OFFLINE"
-MENU="Elige una opcion:"
+BACKTITLE="Update feeds USM OFFLINE"
+TITLE="Update feeds USM OFFLINE"
+MENU="Choose:"
 
-OPTIONS=(1 "Bajar las actualizaciones de firmas"
-         2 "Instalar las firmas"
-         3 "Salir")
+OPTIONS=(1 "Download the feed for USM"
+         2 "Install the feeds"
+         3 "Exit")
 
 CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -27,14 +29,14 @@ clear
 
 case $CHOICE in
 	1)
-		echo "Bajando las firmas"
+		echo "Downloading feeds"
 		sleep 3
 		for FIRMWARE in $PACKAGE_LIST; do
 			dpkg -l $FIRMWARE|grep ^ii >/dev/null 2>&1 && apt-get download $FIRMWARE
 		done
             ;;
 	2)
-		echo "Instalando las firmas"
+		echo "Installing Feeds"
 		sleep 3
 		   dpkg -i *.deb  && alienvault-reconfig -c -v
 exit 0
