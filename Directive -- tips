@@ -1,0 +1,50 @@
+Using Python Regular Expressions, FIND or Comma Separated Lists in Directives
+This article describes how to use Python Regular Expressions (REGEX), FIND or Comma Separated Lists in Directives
+
+NOTE: These features are only available for the fields: "username", "password", "filename" and "userdata1-9". 
+
+When creating directives it is possible to specify additional criteria for an event match.
+This can be done by clicking "More" for the rule in the custom directive which will allow the user to specify additional criteria such as "username" and "password".
+
+In these fields it is also possible to use REGEX, FIND and Comma Separated Lists.
+NOTE: in all examples listed below the content that should be 
+placed in the fields above are the values located between the double 
+quotation marks, excluding the quotation marks themselves.
+
+1. REGEX 
+
+This is done using the "REGEX:" keyword in the field to specify the regular expression. 
+Note: The string must be UTF-8.
+
+Examples: 
+1. The example below will search the "filename" field for any filenames that contain the string "password"
+
+filename="REGEX:*password*" 
+
+2. The example below will search the "userdata4" field for the malicious domain "evildomain.com"
+
+userdata4="REGEX:*evildomain.com*" 
+
+Note: Is not possible to use several regex in the one field i.e it is not possible to use comma separated regexes 
+
+2. FIND
+
+This can be used to find a particular substring in a field by using the keyword "FIND:"  
+
+Example:
+To find the string "root" in the "userdata2" field use the : 
+
+userdata2="FIND:root"
+
+NOTE: Again, the string must be UTF-8. 
+
+3. Comma separated lists
+
+This feature allows the user to create a 
+list of strings they want to try to match inside the directive in a 
+particular field by using a comma separated list. 
+
+Example: 
+To check userdata1 for the complete string "one", "two" or "three" use the example below:
+
+userdata1="one,two,three"
