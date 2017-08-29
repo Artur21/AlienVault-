@@ -1,11 +1,11 @@
 #!/bin/bash
-#IMPORTANT --------> Use a virtual machine with ALienvault trial  to download the feed  <---------
+#IMPORTANT --------> You need a valid License to download the feeds.Won't work with a trial version ;( <---------
 #Version 2.0 
 #Changelog- 1.0 - First release
 #Changelog- 2.0 - Update release 
 #Define the feeds package
 PACKAGE_LIST="ossim-mysql-ext alienvault-directives-free alienvault-directives-pro alienvault-crosscorrelation-free alienvault-crosscorrelation-pro snort-rules-default suricata-rules-default ossim-taxonomy alienvault-openvas-feed alienvault-openvas8-feed alienvault-cpe alienvault-plugins alienvault-plugin-sids alienvault-reporting"
-#Crear menu
+#Create menu
 HEIGHT=15
 WIDTH=60
 CHOICE_HEIGHT=4
